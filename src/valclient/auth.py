@@ -35,7 +35,8 @@ class Auth:
         # print('Access Token: ' + access_token)
 
         headers = {
-            'Authorization': f'Bearer {access_token}',
+            'User-Agent': 'RiotClient/43.0.1.4195386.4190634 rso-auth (Windows;10;;Professional, x64)',
+            'Authorization': f'Bearer {access_token}'
         }
         r = session.post('https://entitlements.auth.riotgames.com/api/token/v1', headers=headers, json={})
         entitlements_token = r.json()['entitlements_token']

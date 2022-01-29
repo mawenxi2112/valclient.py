@@ -22,7 +22,7 @@ class Auth:
 
         r = session.post('https://auth.riotgames.com/api/v1/authorization', json=data, headers=headers)
 
-        # print(r.text)
+        print(r.text)
         data = {
             'type': 'auth',
             'username': self.username,
@@ -32,7 +32,7 @@ class Auth:
         pattern = re.compile('access_token=((?:[a-zA-Z]|\d|\.|-|_)*).*id_token=((?:[a-zA-Z]|\d|\.|-|_)*).*expires_in=(\d*)')
         data = pattern.findall(r.json()['response']['parameters']['uri'])[0] 
         access_token = data[0]
-        # print('Access Token: ' + access_token)
+        print('Access Token: ' + access_token)
 
         headers = {
             'User-Agent': 'RiotClient/43.0.1.4195386.4190634 rso-auth (Windows;10;;Professional, x64)',
